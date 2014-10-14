@@ -23,9 +23,19 @@ Seq[Any](format.raw/*1.19*/("""
 
 """),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
 
-    """),_display_(/*5.6*/message),format.raw/*5.13*/("""
+"""),format.raw/*5.1*/("""<form action=""""),_display_(/*5.16*/routes/*5.22*/.Application.authenticate),format.raw/*5.47*/("""" method="post">
+    <input name="username" type="text" />
+    <br/>
+    <input name="password" type="password" />
+    <br/>
+    <button type="submit">Login</button>
+</form>
+<br/>
+<form action=""""),_display_(/*13.16*/routes/*13.22*/.Application.logout),format.raw/*13.41*/("""" method="post">
+    <button type="submit">Logout</button>
+</form>
 
-""")))}),format.raw/*7.2*/("""
+""")))}),format.raw/*17.2*/("""
 """))}
   }
 
@@ -38,11 +48,11 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Oct 02 21:57:47 MDT 2014
+                  DATE: Mon Oct 13 20:34:32 MDT 2014
                   SOURCE: /home/yury/Play/data-analytics/app/views/index.scala.html
-                  HASH: ba7472ddab71e2d5af41ca4d3f8883dbeccdbd1c
-                  MATRIX: 505->1|610->18|638->21|669->44|708->46|740->53|767->60|799->63
-                  LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|28->7
+                  HASH: fe49f8a7cec3ffa14d6deae6a683759c687a5015
+                  MATRIX: 505->1|610->18|638->21|669->44|708->46|736->48|777->63|791->69|836->94|1058->289|1073->295|1113->314|1212->383
+                  LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|26->5|26->5|34->13|34->13|34->13|38->17
                   -- GENERATED --
               */
           

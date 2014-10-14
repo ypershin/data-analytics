@@ -2,6 +2,16 @@
 
 @main("Welcome to Play") {
 
-    @message
+<form action="@routes.Application.authenticate" method="post">
+    <input name="username" type="text" />
+    <br/>
+    <input name="password" type="password" />
+    <br/>
+    <button type="submit">Login</button>
+</form>
+<br/>
+<form action="@routes.Application.logout" method="post">
+    <button type="submit">Logout</button>
+</form>
 
 }

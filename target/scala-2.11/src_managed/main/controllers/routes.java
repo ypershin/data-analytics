@@ -1,6 +1,6 @@
 // @SOURCE:/home/yury/Play/data-analytics/conf/routes
-// @HASH:4f41fe2b6f59f0d1d4aec1fd7f4615d1d3133677
-// @DATE:Thu Oct 02 21:56:34 MDT 2014
+// @HASH:bf2ec194f5d00faf01aaec75ad3a2c10863732da
+// @DATE:Mon Oct 13 20:55:46 MDT 2014
 
 package controllers;
 
