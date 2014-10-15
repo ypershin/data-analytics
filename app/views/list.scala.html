@@ -1,0 +1,21 @@
+@(products: List[Product],title:String)
+   @main(title) {
+
+    <dl class="products">
+        @for(product <- products) {
+        <dt>@product.name</dt>
+        <dd>@product.description</dd>
+    }
+    </dl>
+
+    <table border="1">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></b></tr>
+        @for(product <- products) {
+        <tr>
+        <td>@product.name</td>
+           <td>@product.description</td>
+         </tr>
+        }
+    </table>
+
+}

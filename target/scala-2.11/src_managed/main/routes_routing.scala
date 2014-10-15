@@ -1,6 +1,6 @@
 // @SOURCE:/home/yury/Play/data-analytics/conf/routes
-// @HASH:bf2ec194f5d00faf01aaec75ad3a2c10863732da
-// @DATE:Mon Oct 13 20:55:46 MDT 2014
+// @HASH:9ccc9527e99ff2bc70b04715661c7ff157861381
+// @DATE:Tue Oct 14 21:17:50 MDT 2014
 
 
 import play.core._
@@ -45,27 +45,34 @@ controllers.Application.test,
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "test", Nil,"GET", """""", Routes.prefix + """test"""))
         
 
-// @LINE:10
-private[this] lazy val controllers_Application_authenticate2_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
-private[this] lazy val controllers_Application_authenticate2_invoker = createInvoker(
+// @LINE:8
+private[this] lazy val controllers_Application_list2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("list"))))
+private[this] lazy val controllers_Application_list2_invoker = createInvoker(
+controllers.Application.list,
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "list", Nil,"GET", """""", Routes.prefix + """list"""))
+        
+
+// @LINE:11
+private[this] lazy val controllers_Application_authenticate3_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("login"))))
+private[this] lazy val controllers_Application_authenticate3_invoker = createInvoker(
 controllers.Application.authenticate,
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "authenticate", Nil,"POST", """""", Routes.prefix + """login"""))
         
 
-// @LINE:11
-private[this] lazy val controllers_Application_logout3_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
-private[this] lazy val controllers_Application_logout3_invoker = createInvoker(
+// @LINE:12
+private[this] lazy val controllers_Application_logout4_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("logout"))))
+private[this] lazy val controllers_Application_logout4_invoker = createInvoker(
 controllers.Application.logout,
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "logout", Nil,"POST", """""", Routes.prefix + """logout"""))
         
 
-// @LINE:16
-private[this] lazy val controllers_Assets_at4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at4_invoker = createInvoker(
+// @LINE:17
+private[this] lazy val controllers_Assets_at5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at5_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """test""","""controllers.Application.test"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.authenticate"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """test""","""controllers.Application.test"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """list""","""controllers.Application.list"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.authenticate"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Application.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -89,26 +96,34 @@ case controllers_Application_test1_route(params) => {
 }
         
 
-// @LINE:10
-case controllers_Application_authenticate2_route(params) => {
+// @LINE:8
+case controllers_Application_list2_route(params) => {
    call { 
-        controllers_Application_authenticate2_invoker.call(controllers.Application.authenticate)
+        controllers_Application_list2_invoker.call(controllers.Application.list)
    }
 }
         
 
 // @LINE:11
-case controllers_Application_logout3_route(params) => {
+case controllers_Application_authenticate3_route(params) => {
    call { 
-        controllers_Application_logout3_invoker.call(controllers.Application.logout)
+        controllers_Application_authenticate3_invoker.call(controllers.Application.authenticate)
    }
 }
         
 
-// @LINE:16
-case controllers_Assets_at4_route(params) => {
+// @LINE:12
+case controllers_Application_logout4_route(params) => {
+   call { 
+        controllers_Application_logout4_invoker.call(controllers.Application.logout)
+   }
+}
+        
+
+// @LINE:17
+case controllers_Assets_at5_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at4_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at5_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

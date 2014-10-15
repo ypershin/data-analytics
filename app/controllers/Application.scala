@@ -56,4 +56,10 @@ object Application extends Controller {
   }
 
 
+  def list = Action { implicit request =>
+    val products = Product.findAll
+    Ok(views.html.list(products,"Test"))
+  }
+
+
 }
