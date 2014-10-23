@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for data-analytics#data-analytics_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies data-analytics#data-analytics_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@533deb47[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1840c179[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -5937,7 +5937,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1200ms :: artifacts dl 51ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2872ms :: artifacts dl 96ms[0m
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT compile produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT runtime produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT test produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-test.xml[0m
@@ -5951,5 +5951,5 @@
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT docs produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT pom produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for data-analytics#data-analytics_2.11;1.0-SNAPSHOT scala-tool produced in /home/yury/Play/data-analytics/target/resolution-cache/reports/data-analytics-data-analytics_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1200ms resolve - 51ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (2872ms resolve - 96ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

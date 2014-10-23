@@ -4,7 +4,7 @@
 		module="data-analytics-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20141014211720"
+		publication="20141022205824"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>

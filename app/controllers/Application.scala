@@ -3,8 +3,11 @@ package controllers
 import play.api._
 import play.api.data.Form
 import play.api.data.Forms._
+import play.api.libs.iteratee.Enumerator
 import play.api.mvc._
 import models._
+
+
 
 object Application extends Controller {
 
@@ -22,6 +25,7 @@ object Application extends Controller {
   }
 
   def authenticate = Action { implicit requets =>
+
 
 //    val login = loginForm.bindFromRequest().get
 //    val user:Option[User] = User.find(login.username)
@@ -43,7 +47,7 @@ object Application extends Controller {
 
   def test = Action { implicit request =>
     request.session.get("username") match {
-      case Some(uname) => Ok(s"hello ${uname} with access=${request.session.get("access").get.toString}")
+      case Some(uname) => Ok(s"hell ${uname} with access=${request.session.get("access").get.toString}")
       case None => Ok("hello No one")
     }
   }
@@ -60,6 +64,28 @@ object Application extends Controller {
     val products = Product.findAll
     Ok(views.html.list(products,"Test"))
   }
+
+
+  def getPdf(id:Int) = Action  {
+
+     if(id==0)
+     Ok.sendFile(
+       content = new java.io.File("/home/yury/Documents/RT - YouTube.pdf"),
+       inline = true
+     )
+    else if(id==1)
+      Ok.sendFile(
+        content = new java.io.File("/home/yury/Documents/SAS versus R - Butler Analytics 070814.pdf"),
+        inline = true
+      )
+    else
+       Ok.sendFile(
+         content = new java.io.File("/home/yury/Documents/data.jpg"),
+         inline = true
+       )
+
+  }
+
 
 
 }

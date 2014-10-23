@@ -1,6 +1,6 @@
 // @SOURCE:/home/yury/Play/data-analytics/conf/routes
-// @HASH:9ccc9527e99ff2bc70b04715661c7ff157861381
-// @DATE:Tue Oct 14 21:17:50 MDT 2014
+// @HASH:e21a694149d0f99d2512fe0ca58a4562c4695088
+// @DATE:Wed Oct 22 22:28:47 MDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,19 +14,19 @@ import _root_.controllers.Assets.Asset
 import Router.queryString
 
 
-// @LINE:17
+// @LINE:18
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers {
 
-// @LINE:17
+// @LINE:18
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:18
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -36,25 +36,25 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 class ReverseApplication {
 
 
-// @LINE:12
-def logout(): Call = {
+// @LINE:7
+def getPdf(id:Int): Call = {
    import ReverseRouteContext.empty
-   Call("POST", _prefix + { _defaultPrefix } + "logout")
+   Call("GET", _prefix + { _defaultPrefix } + "pdf" + queryString(List(Some(implicitly[QueryStringBindable[Int]].unbind("id", id)))))
 }
                         
 
-// @LINE:7
-def test(): Call = {
+// @LINE:13
+def logout(): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "test")
+   Call("POST", _prefix + { _defaultPrefix } + "logout")
 }
                         
 
@@ -65,7 +65,7 @@ def list(): Call = {
 }
                         
 
-// @LINE:11
+// @LINE:12
 def authenticate(): Call = {
    import ReverseRouteContext.empty
    Call("POST", _prefix + { _defaultPrefix } + "login")
@@ -85,20 +85,20 @@ def index(): Call = {
                   
 
 
-// @LINE:17
+// @LINE:18
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:17
+// @LINE:18
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:18
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -112,31 +112,31 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 class ReverseApplication {
 
 
-// @LINE:12
-def logout : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.logout",
+// @LINE:7
+def getPdf : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.getPdf",
    """
-      function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "pdf" + _qS([(""" + implicitly[QueryStringBindable[Int]].javascriptUnbind + """)("id", id)])})
       }
    """
 )
                         
 
-// @LINE:7
-def test : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.test",
+// @LINE:13
+def logout : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.logout",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "test"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
       }
    """
 )
@@ -153,7 +153,7 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:11
+// @LINE:12
 def authenticate : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.authenticate",
    """
@@ -181,20 +181,20 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:17
+// @LINE:18
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.ref {
 
 
-// @LINE:17
+// @LINE:18
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:18
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -203,23 +203,23 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:13
 // @LINE:12
-// @LINE:11
 // @LINE:8
 // @LINE:7
 // @LINE:6
 class ReverseApplication {
 
 
-// @LINE:12
-def logout(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.logout(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "logout", Seq(), "POST", """""", _prefix + """logout""")
+// @LINE:7
+def getPdf(id:Int): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.getPdf(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPdf", Seq(classOf[Int]), "GET", """""", _prefix + """pdf""")
 )
                       
 
-// @LINE:7
-def test(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.test(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "test", Seq(), "GET", """""", _prefix + """test""")
+// @LINE:13
+def logout(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.logout(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "logout", Seq(), "POST", """""", _prefix + """logout""")
 )
                       
 
@@ -229,7 +229,7 @@ def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:11
+// @LINE:12
 def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.authenticate(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """login""")
 )

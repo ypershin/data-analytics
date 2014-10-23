@@ -4,8 +4,9 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /test                       controllers.Application.test
+GET     /pdf                       controllers.Application.getPdf(id:Int)
 GET     /list                       controllers.Application.list
+
 
 
 POST     /login                     controllers.Application.authenticate
