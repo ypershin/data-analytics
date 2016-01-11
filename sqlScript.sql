@@ -10,7 +10,20 @@ create table MonthlyData (
 );
 
 
+select * into CurrentMonthData from MonthlyData where 1=0;
+
 bulk insert MonthlyData 
+from 'C:\Users\me\Dropbox\Dynasty\prc\prc2015.csv'
+with (
+	firstrow=2,
+	fieldterminator = ',',
+	rowterminator = '\n',
+	errorfile = 'C:\Users\me\Dropbox\Dynasty\prc\errorRows.csv',
+	tablock
+);
+
+
+bulk insert CurrentMonthData 
 from 'C:\Users\me\Dropbox\Dynasty\prc\prc2016.csv'
 with (
 	firstrow=2,
@@ -19,6 +32,8 @@ with (
 	errorfile = 'C:\Users\me\Dropbox\Dynasty\prc\errorRows.csv',
 	tablock
 );
+
+
 
 
 -- select top 10 * from MonthlyData;
@@ -44,9 +59,23 @@ round(stdev(b.revDaPk-a.revDaPk),2) sdRev
 from MonthlyData a, MonthlyData b
 where a.period=b.period
 and a.nodeId<>b.nodeId
-and a.nodeId = 1
+-- and a.nodeId = 1
 group by a.nodeId,b.nodeId) z;
 
+
+drop table CurrSummaryData;
+select * into CurrSummaryData from (
+select a.nodeId srcId, b.nodeId sinkId, 
+(b.revDaPk-a.revDaPk) currRev
+from CurrentMonthData a, CurrentMonthData b
+where a.nodeId<>b.nodeId
+) z;
+
+
+select top 10 * from CurrSummaryData;
+create nonclustered index idxCurrPath on CurrSummaryData(srcId,sinkId);
+
+create nonclustered index idxPath on SummaryData(srcId,sinkId);
 
 
 select * into Nodes from (
@@ -89,15 +118,17 @@ deallocate db_cursor
 
 select count(*) from SummaryData;
 
-drop index idxSdRev on SummaryData100k;
-create nonclustered index idxSdRev on SummaryData (avgRev,sdRev) include (srcId,sinkId,cnt,minRev,maxRev);
+drop index idxSdRev on SummaryData;
+create nonclustered index idxRev on SummaryData (avgRev,sdRev,cnt) include (srcId,sinkId,minRev,maxRev);
 
-drop table SummaryData100k;
-select * into SummaryData100k from (select top 10000000 * from SummaryData) z;
 
-select count(*) from SummaryData100k where avgRev/sdRev>1 and avgRev>0;
+select max(avgRev/sdRev) from SummaryData where avgRev>0 and sdRev>0;
+select count(*) from SummaryData where (avgRev/sdRev)>1 and avgRev>0 and sdRev>0 and cnt>=24;
 
 select @@Version
 go
 select * from sys.dm_os_process_memory
 go
+
+select top 10 * from vwSummary1
+where (avgRev/sdRev)>1 and avgRev>0 and sdRev>0 and cnt>=24;;
