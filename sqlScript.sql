@@ -3,10 +3,11 @@ drop table MonthlyData;
 create table MonthlyData (
   nodeId int,
   period date,
-  revDaPk decimal(15,2),
-  revDaOpk decimal(15,2),
-  revRtPk decimal(15,2),
-  revRtOpk decimal(15,2)
+  revDaPk decimal(9,2),
+  revDaOpk decimal(9,2),
+  revRtPk decimal(9,2),
+  revRtOpk decimal(9,2),
+  insertDate date
 );
 
 
